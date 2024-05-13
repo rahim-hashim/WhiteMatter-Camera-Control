@@ -6,6 +6,7 @@ from datetime import datetime
 import urllib3,requests
 # (optional) Disable the "insecure requests" warning for https certs
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+from whitematter_login import remote_url
 
 # looking up cameras from name
 def getCamByName(jsonobj, name):
@@ -18,11 +19,8 @@ def getCamIdByName(jsonobj, name):
     return getCamByName(jsonobj, name)['Id']
 
 # what watchtower url to control
-# remote_url = '129.236.160.244'
-remote_url = '129.236.162.243'
 watchtowerurl = f'https://{remote_url}:4343' # for local: "https:\\localhost:4343' # for remote: https:\\[WATCHTOWER_ID]:4343 
 master_cameraname = 'e3v8360'
-
 
 # parse arguments for trial number
 parser = argparse.ArgumentParser(description='Provide the trial number for saving.')
